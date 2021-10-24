@@ -21,16 +21,18 @@ function init() {
   //play sound if button is pressed
   let playSoundButton = document.querySelector('button');
   playSoundButton.addEventListener('click', event => {
-    hornAudio.play();
-    if(selInput.selectedIndex == 3) {
-      jsConfetti.addConfetti();
+    if(!(slideInput.value < 1)) {
+      hornAudio.play();
+      if(selInput.selectedIndex == 3) {
+        jsConfetti.addConfetti();
+      }
     }
   });
 
   function updateSlider() {
     hornAudio.volume = (slideInput.value / 100);
     if(slideInput.value < 1) {
-      audioImg.src = 'assets/icons/volume-level-0.svg'
+      audioImg.src = 'assets/icons/volume-level-0.svg';
     }
     else if(slideInput.value < 33) {
       audioImg.src = 'assets/icons/volume-level-1.svg'
